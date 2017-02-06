@@ -1,0 +1,95 @@
+/*!
+ * Start Bootstrap - 1 Col Portfolio (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 115px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        color: #ffffff;
+    background-color: #000000;
+
+
+}
+
+footer {
+    margin: 50px 0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+
+	font-weight: 600 !important;
+
+}
+
+.navbar{
+
+min-height: 100px !important;
+
+}
+
+.navbar-nav{
+    margin: 25px 0 0 40px !important;
+
+}
+.navbar-header{
+
+    margin: 18px 0 18px 0 !important;
+
+}
+
+.navbar-inverse{
+
+background-color: #000000 !important;
+    border-color: #000000 !important;
+
+}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+    color: #ffffff;
+    background-color: #ed1e79;
+}
+
+.jumbotron{
+
+	    background-color: #000000;
+}
+
+::selection {
+  background: #ed1e79; /* WebKit/Blink Browsers */
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #ed1e79;
+    border-color: #ed1e79;
+}
+
+.btn-primary:hover {
+    color: #ffffff;
+    background-color: #ed1e79;
+    border-color: #ed1e79;
+}
+h3.course-title {
+    margin: 0 0 35px 0;
+}
+.inside-content{
+
+    margin-top:31px !important;
+
+}
+.booknow-btn{
+
+    margin-top:35px !important;
+
+}
+
+a.course-title-link{
+
+    color: #fff !important;
+}
+
+a.course-title-link:hover{
+
+    color:#fff !important;
+    text-decoration: none !important;
+}
