@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -28,8 +29,32 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+   // protected $redirectTo = '/';
 
+    public function redirectPath($guard = null)
+    {
+        // ...
+        // custom logic here 
+        // ...
+
+        // return desired URL
+        if (Auth::guard($guard)->user()->is_admin){
+
+            //redirect('admin/profile');
+            return '/admin/profile';
+        }
+        else{
+
+          // return  redirect()->to('http://google.com');
+            return '/profile';
+        }
+
+
+        //return '/my/custom/url/here';
+    }
+
+    
+    
     /**
      * Create a new authentication controller instance.
      *

@@ -2,6 +2,15 @@
 
 @section('title', 'Home')
 
+<style type="text/css">
+        .ajax-load{
+            background: #e1e1e1;
+            padding: 10px 0px;
+            width: 100%;
+        }
+    </style>
+
+
 @section('content')
  <!-- Page Content -->
     <div class="container">
@@ -22,10 +31,28 @@
         </div>
         <!-- /.row -->
 
+            <!--Search Form -->
+
+           @include('pages.searchform') 
 
 
+            <!--Search form end-->
+<div class="row" id="post-data">
+            <!--Course list starts -->
+@include('pages.data')
+</div>
+
+        <!-- /.row -->
+
+            <!-- End course list -->
+            <span id="" class="btn btn-primary show_more" title="Load more posts">Show more</span>
+
+<!-- <div class="ajax-load text-center" style="display:none">
+    <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
+</div>
+ -->
          <!-- Pagination -->
-        <div class="row text-center">
+       <!--  <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
                     <li>
@@ -51,5 +78,47 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!-- /.row -->
+
+<script type="text/javascript">
+    var page = 1;
+    $(document).on('click','.show_more',function() {
+        /*if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            page++;
+            loadMoreData(page);
+        }*/
+        page++;
+            loadMoreData(page);
+
+    });
+
+    function loadMoreData(page){
+      $.ajax(
+            {
+                url: '?page=' + page,
+                type: "get",
+                beforeSend: function()
+                {
+                   console.log('Success');
+                }
+            })
+            .done(function(data)
+            {
+                if(data.html == " "){
+                    $('.show_more').html("No more records found");
+                     $('.show_more').show();
+                    return;
+                }
+               //    $('.show_more').hide();
+                $("#post-data").append(data.html);
+            })
+            .fail(function(jqXHR, ajaxOptions, thrownError)
+            {
+                  alert('server not responding...');
+            });
+    }
+</script>
+
+
+  @endsection      
