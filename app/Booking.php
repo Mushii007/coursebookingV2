@@ -8,8 +8,5 @@ class Booking extends Model
 {
     //
 
-    public function courses(){
-
-    	return $this->hasMany(Course :: class);
-    }
+ 
 }
