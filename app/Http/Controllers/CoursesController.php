@@ -23,6 +23,7 @@ class CoursesController extends Controller
 
         //$courselist = DB::table('courses')->offset(0)->limit(1)->get();
             $courselist = Course ::paginate(2);
+            dd($courselist);
             if ($request->ajax()) {
         
             $view =view('pages.data', compact('courselist'))->render();
